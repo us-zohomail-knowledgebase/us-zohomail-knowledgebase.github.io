@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://us-zohomail-knowledgebase.github.io/sitemap.xml
