@@ -1,40 +1,18 @@
 <!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="Helpful Zoho Mail setup, account, email management, and troubleshooting guides."><title>Zoho Mail Helpdesk | Clear answers for your inbox</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="stylesheet" href="styles.css"></head>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="Helpful Zoho Mail setup, account, email management, and troubleshooting guides."><title>Zoho Mail Helpdesk | Clear answers for your inbox</title> <meta name="msvalidate.01" content="EE6D4DD82CF6C5ED2AF3667411F585D7" /> <meta name="google-site-verification" content="Soo9Zoou7VP-FRmzt8Zaw8IdBx0uAIMKY5yry2n3_No"> <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="stylesheet" href="styles.css"></head>
 <body><div id="app"></div><script src="config.js"></script><script src="app.js"></script><script>
 const app=document.getElementById("app");
 app.innerHTML=header("Home")+`
-<main><section class="hero"><div class="container hero-grid"><div><div class="eyebrow">${esc(C.site.heroEyebrow)}</div><h1>⁣⁣${esc(C.site.heroTitle)} p>${esc(C.site.heroDescription)}</p><form class="search-box" id="heroSearch"><span>⌕</span><input id="searchInput" type="search" placeholder="Search setup, login, email settings..." aria-label="Search help guides"><button>Search guides⁣⁣ /form><p class="hero-note">Explore practical walkthroughs written in clear, simple language. </p></div><div class="hero-art"><img class="hero-photo" src="${esc(C.site.heroImage)}" alt="Modern workspace with laptop and notebook"><div class="floating-card">⁣⁣⁣⁣⁣ pful guides, all in one place <small>Find a clear next step for your inbox.</small></div></div></div></section>
+<main><section class="hero"><div class="container hero-grid"><div><div class="eyebrow">${esc(C.site.heroEyebrow)}</div><h1>${esc(C.site.heroTitle)}</h1><p>${esc(C.site.heroDescription)}</p><form class="search-box" id="heroSearch"><span>⌕</span><input id="searchInput" type="search" placeholder="Search setup, login, email settings..." aria-label="Search help guides"><button>Search guides</button></form><p class="hero-note">Explore practical walkthroughs written in clear, simple language.</p></div><div class="hero-art"><img class="hero-photo" src="${esc(C.site.heroImage)}" alt="Modern workspace with laptop and notebook"><div class="floating-card">✦ Helpful guides, all in one place<small>Find a clear next step for your inbox</small></div></div></div></section>
 <div class="container stats"><div class="stat"><div class="stat-icon">📚</div><div><strong>${C.articles.length}+</strong><span>Helpful guides</span></div></div><div class="stat"><div class="stat-icon">🗂️</div><div><strong>${C.categories.length}</strong><span>Topic categories</span></div></div><div class="stat"><div class="stat-icon">🔎</div><div><strong>Quick</strong><span>Search and discovery</span></div></div></div>
-<section class="section" id="categories"><div class="container"><div class="section-head"><div><div class="kicker">Browse by topic.⁣ /div><h2>What can we help you with? </h2><p class="section-sub">Start with a category and find the guidance you need. </p></div><a class="text-link" href="#">View all guides →</a></div><div class="category-grid" id="categoryGrid"></div></div></section>
-<section class="section" id="popular" style="background:#f0f4fb"><div class="container"><div class="section-head"><div><div class="kicker">Reader favorites⁣ /div><h2>Popular help articles⁣ /h2><p class="section-sub">Useful starting points for common Zoho Mail tasks. </p></div><a class="text-link" href="#">Explore the library →</a></div><div class="article-grid" id="popularGrid"></div></div></section>
-<section class="section"><div class="container"><div class="split-band"><div>⁣⁣⁣⁣ d a specific answer? </h2><p>Search the full help library and narrow down the right guide. </p></div><a class="outline-btn" href="#">Browse all articles&nbsp; →</a></div></div></section>
-<section class="section" id="faq"><div class="container"><div class="section-head"><div><div class="kicker">Quick answers⁣ /div><h2>Frequently asked questions ${C.faqs.map(f=>${esc(f.question)} </summary><p>⁣⁣${esc(f.answer)}⁣⁣). in("")}</div></div></section>
-<section class="section" id="recent" style="padding-top:0"><div class="container"><div class="section-head"><div><div class="kicker">Fresh from the library </div><h2>More guides to explore</h2></div></div><div class="article-grid" id="recentGrid"></div></div></section></main>`+footer();
-document.getElementById("categoryGrid").innerHTML=C.categories.map(c=><a class="category-card" href="articles.html?category=${encodeURIComponent(c.name)}"><div class="category-icon">${c.icon}</div><h3>${esc(c.name)}</h3><p>${esc(c.description)}</p></a>).join("");
+<section class="section" id="categories"><div class="container"><div class="section-head"><div><div class="kicker">Browse by topic</div><h2>What can we help you with?</h2><p class="section-sub">Start with a category and find the guidance you need.</p></div><a class="text-link" href="#">View all guides →</a></div><div class="category-grid" id="categoryGrid"></div></div></section>
+<section class="section" id="popular" style="background:#f0f4fb"><div class="container"><div class="section-head"><div><div class="kicker">Reader favorites</div><h2>Popular help articles</h2><p class="section-sub">Useful starting points for common Zoho Mail tasks.</p></div><a class="text-link" href="#">Explore the library →</a></div><div class="article-grid" id="popularGrid"></div></div></section>
+<section class="section"><div class="container"><div class="split-band"><div><h2>Need a specific answer?</h2><p>Search the full help library and narrow down the right guide.</p></div><a class="outline-btn" href="#">Browse all articles&nbsp; →</a></div></div></section>
+<section class="section" id="faq"><div class="container"><div class="section-head"><div><div class="kicker">Quick answers</div><h2>Frequently asked questions</h2></div></div><div class="faq-list">${C.faqs.map(f=>`<details class="faq-item"><summary>${esc(f.question)}</summary><p>${esc(f.answer)}</p></details>`).join("")}</div></div></section>
+<section class="section" id="recent" style="padding-top:0"><div class="container"><div class="section-head"><div><div class="kicker">Fresh from the library</div><h2>More guides to explore</h2></div></div><div class="article-grid" id="recentGrid"></div></div></section></main>`+footer();
+document.getElementById("categoryGrid").innerHTML=C.categories.map(c=>`<a class="category-card" href="articles.html?category=${encodeURIComponent(c.name)}"><div class="category-icon">${c.icon}</div><h3>${esc(c.name)}</h3><p>${esc(c.description)}</p></a>`).join("");
 renderCards(C.popularArticleSlugs.map(findArticle).filter(Boolean),document.getElementById("popularGrid"));
 renderCards(C.recentArticleSlugs.map(findArticle).filter(Boolean),document.getElementById("recentGrid"));
 document.getElementById("heroSearch").addEventListener("submit",e=>{e.preventDefault();location.href=location.pathname+location.search+"#";});
 wireMenu();
 </script></body></html>
-<!doctype html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-
-<meta name="description" content="Helpful Zoho Mail setup, account, email management, and troubleshooting guides.">
-
-  <!-- Bing Webmaster Tools Verification -->
-<meta name="msvalidate.01" content="EE6D4DD82CF6C5ED2AF3667411F585D7">
-
-  
-  <!-- Google Search Console Verification -->
-<meta name="google-site-verification" content="Soo9Zoou7VP-FRmzt8Zaw8IdBx0uAIMKY5yry2n3_No">
-
-
-
-<title>Zoho Mail Helpdesk: A Complete Guide Step By Step</title>
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="stylesheet" href="styles.css">
-</head>
